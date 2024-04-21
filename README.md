@@ -12,11 +12,11 @@ This is the final assignment project for Final Exam. It is a Spring Boot applica
 
 ## Installation
 
-1- Download the file  and open it in Intelij Or your java IDE
-2- Copy the SQL code and paste it in SQLECTRON or MySQL
-3- Run the SQL code to create the tables and insert the values
-4- Open application.properties in Intelij and add your password in the 'yourPassword' 
-5- Run the code in intelij
+- Download the file  and open it in Intelij Or your java IDE
+- Copy the SQL code and paste it in SQLECTRON or MySQL
+- Run the SQL code to create the tables and insert the values
+- Open application.properties in Intelij and add your password in the 'yourPassword' 
+- Run the code in intelij
 
 
 ##SQL
