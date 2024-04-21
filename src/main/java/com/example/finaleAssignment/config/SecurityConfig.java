@@ -25,7 +25,7 @@ public class SecurityConfig {
     private Environment env;
 
     @Autowired
-    private JwtTokenProvider jwtTokenProvider; // Inject JwtTokenProvider bean here
+    private JwtTokenProvider jwtTokenProvider; 
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -34,10 +34,10 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(authorize -> authorize
-                        .requestMatchers("/users", "/albums", "/Photos").permitAll()
+                         .requestMatchers("/users", "/albums", "/Photos").hasRole("ADMIN")
                 )
-                .addFilterBefore(new JWTTokenValidatorFilter(jwtTokenProvider), BasicAuthenticationFilter.class) // Provide JwtTokenProvider to JWTTokenValidatorFilter constructor
-                .addFilterAfter(new JWTTokenGeneratorFilter(jwtTokenProvider), BasicAuthenticationFilter.class) // Provide JwtTokenProvider to JWTTokenGeneratorFilter constructor
+                .addFilterBefore(new JWTTokenValidatorFilter(jwtTokenProvider), BasicAuthenticationFilter.class) 
+                .addFilterAfter(new JWTTokenGeneratorFilter(jwtTokenProvider), BasicAuthenticationFilter.class) 
                 .sessionManagement(session -> session.maximumSessions(1))
                 .httpBasic(withDefaults())
                 .formLogin(withDefaults())
